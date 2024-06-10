@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
 
-    public float playerSpeed = 20f;
+    public float playerSpeed = 10f;
+
+    public float  momentumDamping = 5f;
     private CharacterController cc;
     public Animator cameraAnim;
     private bool isWalking;
@@ -24,7 +26,6 @@ public class PlayerMove : MonoBehaviour
     {
         GetInput();
         MovePlayer();
-        CheckForHeadBot();
 
         cameraAnim.SetBool("isWalking", isWalking);
         cameraAnim.SetFloat("animcamSpeed", animcamSpeed);
@@ -32,29 +33,30 @@ public class PlayerMove : MonoBehaviour
 
     void GetInput()
     {
-        inputVector = new Vector3(Input.GetAxisRaw("Horizontal"),0f,Input.GetAxisRaw("Vertical"));
-        inputVector.Normalize();
-        inputVector =  transform.TransformDirection(inputVector);
+        // si on est en train de bouger
+        if(Input.GetKey(KeyCode.Z) || 
+           Input.GetKey(KeyCode.Q) || 
+           Input.GetKey(KeyCode.S) || 
+           Input.GetKey(KeyCode.D))
+        {
+            inputVector = new Vector3(Input.GetAxisRaw("Horizontal"),0f,Input.GetAxisRaw("Vertical"));
+            inputVector.Normalize();
+            inputVector =  transform.TransformDirection(inputVector);
 
+            isWalking = true;
+        } 
+        // si on s'arrête de bouger
+        else 
+        {
+            inputVector = Vector3.Lerp(inputVector, Vector3.zero, momentumDamping * Time.deltaTime);
+            isWalking = false;
+        }
+            
         movementVector = (inputVector * playerSpeed) + (Vector3.up * gravity);
     }
 
     void MovePlayer()
     {
         cc.Move(movementVector * Time.deltaTime);
-    }
-
-    void CheckForHeadBot()
-    {
-        if(cc.velocity.magnitude>0.1f)
-        {
-            isWalking = true;
-            animcamSpeed = 1f + playerSpeed / 16;
-
-        } else
-        {
-            animcamSpeed = 1f;
-            isWalking = false;
-        }
     }
 }
