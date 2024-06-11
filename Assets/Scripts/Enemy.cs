@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public EnemyManager enemyManager;
     private float enemyHealth = 2f;
 
+    public GameObject gunHitEffect;
+
     void Start()
     {
         
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
     }
 }
