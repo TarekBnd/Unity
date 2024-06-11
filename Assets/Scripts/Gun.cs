@@ -6,10 +6,20 @@ public class Gun : MonoBehaviour
 {
     public float range = 5f;
     public float Verticalrange = 5f;
+    public float bigDamage = 2f;
+    public float smallDamage = 1f;
+
+
+    public float fireRate;
+    private float nextTimeFire;
 
     private BoxCollider gunTrigger;
 
-    public EnemyManager EnemyManager;
+
+    public LayerMask raycastLayerMask;
+    public EnemyManager enemyManager;
+
+
     void Start()
     {
         gunTrigger = GetComponent<BoxCollider>();
@@ -21,7 +31,42 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && Time.time > nextTimeFire)
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+
+        foreach(var enemy in enemyManager.enemiesInTrigger)
+        {
+            var direction = enemy.transform.position - transform.position;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction, out hit, range * 1.5f, raycastLayerMask))
+            {
+
+
+                if(hit.transform == enemy.transform)
+                {
+                    float distance = Vector3.Distance(enemy.transform.position, transform.position);
+
+                    if (distance > range * 0.5f)
+                    {
+                        enemy.TakeDamage(smallDamage);
+                    } else
+                    {
+                        enemy.TakeDamage(bigDamage);
+
+                    }
+
+                }
+            }
+        }
         
+        nextTimeFire = Time.time + fireRate;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +75,7 @@ public class Gun : MonoBehaviour
         {
             if(enemy)
             {
-                EnemyManager.AddEnemy(enemy);
+                enemyManager.AddEnemy(enemy);
             }
         }
         
@@ -42,7 +87,7 @@ public class Gun : MonoBehaviour
         {
             if(enemy)
             {
-                EnemyManager.RemoveEnemy(enemy);
+                enemyManager.RemoveEnemy(enemy);
             }
         }
     }
