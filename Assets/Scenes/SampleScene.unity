@@ -367,7 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca6f51c7938fc445aff6ae4a50a054a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 20
+  playerSpeed: 10
+  momentumDamping: 5
   cameraAnim: {fileID: 711454932}
   animcamSpeed: 1
 --- !u!143 &711454929
