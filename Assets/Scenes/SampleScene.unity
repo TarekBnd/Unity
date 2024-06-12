@@ -1291,10 +1291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca6f51c7938fc445aff6ae4a50a054a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 15
+  playerSpeed: 10
   momentumDamping: 5
+  dashSpeed: 25
+  dashDuration: 0.6
+  dashCooldown: 5
   cameraAnim: {fileID: 711454932}
-  gunAnim: {fileID: 958305999}
   animcamSpeed: 1
 --- !u!143 &711454929
 CharacterController:
