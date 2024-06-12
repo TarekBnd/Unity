@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     public float bigDamage = 2f;
     public float smallDamage = 1f;
 
+    
+    
     public Animator gunAnim;
 
     public float fireRate;
@@ -50,7 +52,6 @@ public class Gun : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit, range * 1.5f, raycastLayerMask))
             {
-
 
                 if(hit.transform == enemy.transform)
                 {

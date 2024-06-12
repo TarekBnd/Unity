@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     public float  momentumDamping = 5f;
     private CharacterController cc;
     public Animator cameraAnim;
+    public Animator gunAnim;
     private bool isWalking;
 
     public float animcamSpeed = 1f;
@@ -28,6 +29,7 @@ public class PlayerMove : MonoBehaviour
         MovePlayer();
 
         cameraAnim.SetBool("isWalking", isWalking);
+        gunAnim.SetBool("isWalking", isWalking);
         cameraAnim.SetFloat("animcamSpeed", animcamSpeed);
     }
 
