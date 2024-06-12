@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
 
     public LayerMask whatIsGround, WhatIsPlayer;
 
-
+    public PlayerMove player;
     private Transform playersTransform;
     private UnityEngine.AI.NavMeshAgent enemyNavMeshAgent;
 
@@ -34,7 +34,15 @@ public class Enemy : MonoBehaviour
     
     void SearchPlayer()
     {
-        enemyNavMeshAgent.SetDestination(playersTransform.position); 
+
+        if(player.isInvisible)
+        {
+            enemyNavMeshAgent.SetDestination(transform.position); 
+        } 
+        else 
+        {
+            enemyNavMeshAgent.SetDestination(playersTransform.position); 
+        }
     }
 
     void ResetAttack()

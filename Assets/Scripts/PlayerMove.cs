@@ -21,24 +21,38 @@ public class PlayerMove : MonoBehaviour
     private Vector3 inputVector;
     private Vector3 movementVector;
     private float gravity = -10f;
+    public bool isInvisible = false;
+
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
     }
 
+    private IEnumerator TurnOnAndResetBoolean()
+    {
+        isInvisible = true;
+        yield return new WaitForSeconds(6f);
+        isInvisible = false;
+
+    }
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            StartCoroutine(TurnOnAndResetBoolean());
+        }
+    
+
         GetInput();
         MovePlayer();
-
         cameraAnim.SetBool("isWalking", isWalking);
         cameraAnim.SetFloat("animcamSpeed", animcamSpeed);
     }
 
     void GetInput()
     {
-        // Handling dash input
         if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > lastDashTime + dashCooldown)
         {
             StartDash();

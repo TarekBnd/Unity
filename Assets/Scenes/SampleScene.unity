@@ -1298,6 +1298,7 @@ MonoBehaviour:
   dashCooldown: 5
   cameraAnim: {fileID: 711454932}
   animcamSpeed: 1
+  isInvisible: 0
 --- !u!143 &711454929
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1862,8 +1863,6 @@ GameObject:
   - component: {fileID: 1233897532}
   - component: {fileID: 1233897531}
   - component: {fileID: 1233897530}
-  - component: {fileID: 1233897529}
-  - component: {fileID: 1233897528}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -1871,30 +1870,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1233897528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233897527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c5af08c2b1e1346951d0dcde149b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1233897529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233897527}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db9cc9cc1c45f445854cd558a92ba8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1233897530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1896,7 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 711454928}
 --- !u!54 &1233897531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2392,8 +2368,6 @@ GameObject:
   - component: {fileID: 1285656946}
   - component: {fileID: 1285656945}
   - component: {fileID: 1285656944}
-  - component: {fileID: 1285656943}
-  - component: {fileID: 1285656942}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -2401,30 +2375,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1285656942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285656941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c5af08c2b1e1346951d0dcde149b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1285656943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1285656941}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db9cc9cc1c45f445854cd558a92ba8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1285656944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2451,6 +2401,7 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 711454928}
 --- !u!54 &1285656945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2584,8 +2535,6 @@ GameObject:
   - component: {fileID: 1372182607}
   - component: {fileID: 1372182606}
   - component: {fileID: 1372182605}
-  - component: {fileID: 1372182604}
-  - component: {fileID: 1372182603}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -2593,30 +2542,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1372182603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372182602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c5af08c2b1e1346951d0dcde149b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1372182604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372182602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db9cc9cc1c45f445854cd558a92ba8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1372182605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2568,7 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 711454928}
 --- !u!54 &1372182606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3451,8 +3377,6 @@ GameObject:
   - component: {fileID: 2124444960}
   - component: {fileID: 2124444964}
   - component: {fileID: 2124444959}
-  - component: {fileID: 2124444966}
-  - component: {fileID: 2124444968}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -3486,6 +3410,7 @@ MonoBehaviour:
   WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
+  player: {fileID: 711454928}
 --- !u!136 &2124444960
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3582,18 +3507,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2124444966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124444958}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5db9cc9cc1c45f445854cd558a92ba8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &2124444967
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3616,18 +3529,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2124444968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124444958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c5af08c2b1e1346951d0dcde149b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2126914514
 GameObject:
   m_ObjectHideFlags: 0
