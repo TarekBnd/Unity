@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
     public float bigDamage = 2f;
     public float smallDamage = 1f;
 
+    public Animator gunAnim;
 
     public float fireRate;
     private float nextTimeFire;
@@ -41,6 +42,7 @@ public class Gun : MonoBehaviour
     {
         GetComponent<AudioSource>().Stop();
         GetComponent<AudioSource>().Play();
+        gunAnim.SetTrigger("Shoot");
         foreach(var enemy in enemyManager.enemiesInTrigger)
         {
             var direction = enemy.transform.position - transform.position;
