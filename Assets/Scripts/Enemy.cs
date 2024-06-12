@@ -5,28 +5,57 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyManager enemyManager;
-    private float enemyHealth = 2f;
+    public float enemyHealth = 4f;
+    
 
+
+    public GameObject animEnemyDeath;
     public GameObject gunHitEffect;
+    public GameObject projectile;
+
+
+    public bool isBat;
+    public bool isGhost;
+    private bool alreadyAttacked;
+
+    public float timebetweenAttacks;
+
+    public LayerMask whatIsGround, WhatIsPlayer;
+
+
+    private Transform playersTransform;
+    private UnityEngine.AI.NavMeshAgent enemyNavMeshAgent;
 
     void Start()
     {
-        
+        playersTransform = FindObjectOfType<PlayerMove>().transform;
+        enemyNavMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+    
+    void SearchPlayer()
+    {
+        enemyNavMeshAgent.SetDestination(playersTransform.position); 
     }
 
+    void ResetAttack()
+    {
+        alreadyAttacked = false;
+    }
 
     void Update()
     {
-        if(enemyHealth <= 0)
-        {
-            enemyManager.RemoveEnemy(this);
-            Destroy(gameObject);
-        }
+        SearchPlayer();
     }
 
     public void TakeDamage(float damage)
     {
         Instantiate(gunHitEffect, transform.position, Quaternion.identity);
         enemyHealth -= damage;
+        if(enemyHealth <= 0)
+        {
+            enemyManager.RemoveEnemy(this);
+            Destroy(gameObject);
+            Instantiate(animEnemyDeath, transform.position, Quaternion.identity);
+        }
     }
 }

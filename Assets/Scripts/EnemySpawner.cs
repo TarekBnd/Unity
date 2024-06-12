@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
             yield return wait;
             GameObject enemyToSpawn = ChooseEnemy();
             
-            Instantiate(spawnParticle, new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity);
+            Instantiate(spawnParticle, new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.Euler(90,0,0));
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
         }
     }

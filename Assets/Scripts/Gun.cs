@@ -7,8 +7,9 @@ public class Gun : MonoBehaviour
     public float range = 5f;
     public float Verticalrange = 5f;
     public float bigDamage = 2f;
-    public float smallDamage = 1f;
 
+    
+    
     public Animator gunAnim;
 
     public float fireRate;
@@ -51,19 +52,10 @@ public class Gun : MonoBehaviour
             if (Physics.Raycast(transform.position, direction, out hit, range * 1.5f, raycastLayerMask))
             {
 
-
                 if(hit.transform == enemy.transform)
                 {
                     float distance = Vector3.Distance(enemy.transform.position, transform.position);
-
-                    if (distance > range * 0.5f)
-                    {
-                        enemy.TakeDamage(smallDamage);
-                    } else
-                    {
-                        enemy.TakeDamage(bigDamage);
-
-                    }
+                    enemy.TakeDamage(bigDamage);
 
                 }
             }
