@@ -85,6 +85,6 @@ public class PlayerHealth : MonoBehaviour
         {
             armor = maxArmor;
         }
-        CanvasManager.Instance.UpdateHealth(armor);
+        CanvasManager.Instance.UpdateArmor(armor);
     }
 }
