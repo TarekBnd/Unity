@@ -6,9 +6,9 @@ public class PlayerMove : MonoBehaviour
 {
     public float playerSpeed = 10f;
     public float momentumDamping = 5f;
-    public float dashSpeed = 20f; // Speed during the dash
-    public float dashDuration = 0.2f; // Duration of the dash
-    public float dashCooldown = 1f; // Cooldown time after the dash
+    public float dashSpeed = 20f; 
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
 
     private CharacterController cc;
     public Animator cameraAnim;
@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
         isDashing = true;
         dashTime = 0f;
         lastDashTime = Time.time;
-        movementVector = inputVector * dashSpeed; // Apply dash speed to the current movement direction
+        movementVector = inputVector * dashSpeed; 
     }
 
     void EndDash()

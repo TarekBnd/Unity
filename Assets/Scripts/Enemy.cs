@@ -70,9 +70,11 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerHealth>().DamagePlayer((int)enemyDamage);
+        if(!player.isInvisible){
+            if(other.CompareTag("Player"))
+            {
+                other.GetComponent<PlayerHealth>().DamagePlayer((int)enemyDamage);
+            }
         }
     }
 }
