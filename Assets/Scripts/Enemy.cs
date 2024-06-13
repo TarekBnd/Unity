@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyManager enemyManager;
     public float enemyHealth = 4f;
+    public float enemyDamage = 20f;
     
 
 
@@ -64,6 +65,14 @@ public class Enemy : MonoBehaviour
             enemyManager.RemoveEnemy(this);
             Destroy(gameObject);
             Instantiate(animEnemyDeath, transform.position, Quaternion.identity);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerHealth>().DamagePlayer((int)enemyDamage);
         }
     }
 }

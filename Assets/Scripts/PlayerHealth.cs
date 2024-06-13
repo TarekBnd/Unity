@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         armor = maxArmor;
+
+        CanvasManager.Instance.UpdateHealth(health);
     }
 
     // Update is called once per frame
@@ -50,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.buildIndex);
         }
+
+        CanvasManager.Instance.UpdateHealth(health);
+        CanvasManager.Instance.UpdateArmor(armor);
+
     }
 
     public void GiveHealth(int amount, GameObject pickup)
@@ -64,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health = maxHealth;
         }
+        CanvasManager.Instance.UpdateHealth(health);
     }
 
     public void GiveArmor(int amount, GameObject pickup)
@@ -78,5 +85,6 @@ public class PlayerHealth : MonoBehaviour
         {
             armor = maxArmor;
         }
+        CanvasManager.Instance.UpdateHealth(armor);
     }
 }
